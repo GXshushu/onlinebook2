@@ -40,4 +40,18 @@ public class contentController {
         List<Content> list = csi.findAllContent(uid);
         return list;
     }
+
+    @PostMapping("/updatecontent")
+    public String updateContent(@RequestBody Map<String,String> params,HttpSession session){
+        try {
+            String text = params.get("content");
+            String cid = params.get("cid");
+            csi.updateContent(text,cid,(String) session.getAttribute("id"));
+            return "success";
+        }
+        catch (Exception e){
+            return "false";
+        }
+
+    }
 }

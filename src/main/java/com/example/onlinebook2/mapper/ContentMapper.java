@@ -13,4 +13,5 @@ public interface ContentMapper {
     public void insertContent(Content content);
     public List<Content> findAllContent(String uid);
     public void updateContent(String text,String cid);
+    public Content findOneContentByCid(String cid);
 }

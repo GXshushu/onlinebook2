@@ -11,6 +11,9 @@
     <select id="findAllContent" parameterType="String" resultType="com.example.onlinebook2.entity.Content">
         select * from Content where uid = #{uid}
     </select>
+    <select id="findOneContentByCid" parameterType="String" resultType="com.example.onlinebook2.entity.Content">
+        select * from Content where `cid` = #{cid}
+    </select>
     <insert id="insertContent" >
         insert into `content`(`text`,`createTime`,`cid`,`uid`) VALUES (#{text},#{createTime},#{cid},#{uid})
     </insert>
