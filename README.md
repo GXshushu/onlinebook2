@@ -1,0 +1,2 @@
+# onlinebook2
+这是一个入门学习springboot的后端项目，用RestController，集成Mybatis实现增删改查，数据库包含两张表User和Content都与entity下的实体类对应。
