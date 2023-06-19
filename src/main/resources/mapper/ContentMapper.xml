@@ -14,4 +14,8 @@
     <insert id="insertContent" >
         insert into `content`(`text`,`createTime`,`cid`,`uid`) VALUES (#{text},#{createTime},#{cid},#{uid})
     </insert>
+    
+    <update id="updateContent">
+        update Content set `text` = #{text} where `cid` = #{cid}
+    </update>
 </mapper>
