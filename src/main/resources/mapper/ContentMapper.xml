@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.onlinebook2.mapper.ContentMapper">
+    <cache
+            size="1024"
+            eviction="LRU"
+            flushInterval="60000"
+            readOnly="true"
+    />
+    <select id="findAllContent" parameterType="String" resultType="com.example.onlinebook2.entity.Content">
+        select * from Content where uid = #{uid}
+    </select>
+    <insert id="insertContent" >
+        insert into `content`(`text`,`createTime`,`cid`,`uid`) VALUES (#{text},#{createTime},#{cid},#{uid})
+    </insert>
+</mapper>
