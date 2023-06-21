@@ -19,7 +19,7 @@ public class ContentServiceImpl {
     }
     public boolean updateContent(String text,String cid,String uid){
         Content content = cm.findOneContentByCid(cid);
-        if (content.getUid().equals(uid)){ //权限校验
+        if (content.getUid().equals(uid)){  //权限校验
             cm.updateContent(text,cid);
             return true;
         }
@@ -27,5 +27,15 @@ public class ContentServiceImpl {
             return false;
         }
 
+    }
+    public boolean deleteContent(String cid,String uid){
+        Content content = cm.findOneContentByCid(cid);
+        if(content.getUid().equals(uid)){   //权限校验
+            cm.deleteContent(cid);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

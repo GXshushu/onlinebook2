@@ -21,4 +21,7 @@
     <update id="updateContent">
         update Content set `text` = #{text} where `cid` = #{cid}
     </update>
+    <delete id="deleteContent">
+        delete from Content where cid = #{cid}
+    </delete>
 </mapper>

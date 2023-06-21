@@ -46,12 +46,37 @@ public class contentController {
         try {
             String text = params.get("content");
             String cid = params.get("cid");
-            csi.updateContent(text,cid,(String) session.getAttribute("id"));
-            return "success";
+            boolean ret = csi.updateContent(text,cid,(String) session.getAttribute("id"));
+            if(ret == true) {
+                return "success";
+            }
+            else{
+                return "forbidden";
+            }
         }
         catch (Exception e){
             return "false";
         }
 
     }
+
+    @PostMapping("/deletecontent")
+    public String deleteContent(@RequestBody Map<String,String> params,HttpSession session){
+        String cid = params.get("cid");
+        String uid = (String) session.getAttribute("id");
+        try {
+            boolean ret = csi.deleteContent(cid,uid);
+            if(ret == true){
+                return "success";
+            }
+            else {
+                return "forbidden";
+            }
+        }
+        catch (Exception e){
+            return "false";
+        }
+
+    }
+    
 }

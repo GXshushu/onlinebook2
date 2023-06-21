@@ -10,4 +10,5 @@ public interface ContentService {
     public void insertContent(Content content);
     public List<Content> findAllContent(String uid);
     public void updateContent(String text,String cid,String uid);
+    public boolean deleteContent(String cid,String uid);
 }
